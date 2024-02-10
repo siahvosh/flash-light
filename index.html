@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="container">
+
+    <img style="z-index: -1; object-fit: cover; object-position: center; width: 100%; height: 100%; position: absolute;" src="https://freechristimages.com/images-Christ-life/Last-Supper-Jacopo-Bassano-1542.jpg" alt="">
+</div>
+
+</body>
+</html>
+
+<Script>
+
+
+    function update(e){
+
+        X = e.clientX
+        Y = e.clientY
+        // console.log({x: e});
+        // console.log({Y: Y});
+        // var x = e.clientX || e.touches[0].clientX
+        // var y = e.clientY || e.touches[0].clientY
+
+        document.documentElement.style.setProperty('--cursorX', X + 'px')
+        document.documentElement.style.setProperty('--cursorY', Y + 'px')
+    }
+
+
+    document.addEventListener('mousemove', update)
+    // document.addEventListener('touchmove',update)
+
+</Script>
+
+
+<style>
+
+    :root{
+        cursor: none;
+        --cursorX: 50vw;
+        --cursorY: 50vh
+    }
+
+    :root:before{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        pointer-events: none;
+        background: radial-gradient(circle 5vmax at var(--cursorX) var(--cursorY),rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 70%,rgba(0,0,0,.95) 150%)
+    }
+
+    .container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* background: gray !important; */
+    }
+
+
+</style>
